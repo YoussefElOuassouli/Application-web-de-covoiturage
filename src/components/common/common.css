@@ -6,3 +6,20 @@
 .margin-left {
     margin-right: 15px
 }
+
+.login-form {
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    right: 0;
+    width: 500px;
+    padding: 50px;
+    z-index: 1;
+    bottom: 0;
+    top: 7vh;
+}
+
+.white-font-clr {
+    color: aliceblue !important;
+    font-weight: bold !important;
+    
+}
