@@ -4,7 +4,7 @@ import settingspng from '../../assets/settings.png'
 import logOutpng from '../../assets/logout.png'
 
 import "./common.css"
-export default function NavBar() {
+export default function NavBar({onRegOrLogClick}) {
 
   const [connected,setConnection] = useState(false);
 
@@ -28,7 +28,7 @@ export default function NavBar() {
           <a className="nav-link disabled" href="/">Disabled</a>
         </li>
       </ul>
-      <form className="d-flex">
+      <div onChange={(e)=> {e.preventDefault()}} className="d-flex">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         {
           connected === true
@@ -50,17 +50,21 @@ export default function NavBar() {
           (
             <>
             <li className="nav-item">
-              <a className="nav-link" href="/">LOGIN</a>
+              <button className="nav-link" onClick={() => 
+                onRegOrLogClick("Login")
+              }>LOGIN</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">REGISTER</a>
+              <button className="nav-link" onClick={() => 
+                onRegOrLogClick("Register")
+              } >REGISTER</button>
             </li>
             </>
           )
         }
 
         </ul>
-      </form>
+      </div>
     </div>
   </div>
 </nav>
