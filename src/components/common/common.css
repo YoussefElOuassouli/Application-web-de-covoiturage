@@ -21,5 +21,24 @@
 .white-font-clr {
     color: aliceblue !important;
     font-weight: bold !important;
-    
+
+}
+
+.Login {
+    display: none;
+}
+
+.Register {
+    display : none;
+}
+
+.close-auth-form {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.container {
+    height: 92vh;
 }

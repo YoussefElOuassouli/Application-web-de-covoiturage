@@ -6,7 +6,7 @@ import Register from './auth/Register';
 export default class Auth extends Component {
     constructor(props){
         super(props)
-        this.state = {"fullname":null,"email":null,"password":null,"phoneNumber":null,"gender":null,"styleForm":props.styleForm, "login":false,"msgError":null,"msgErrorEmail":null,"msgErrorFullname":null}
+        this.state = {"fullname":null,"email":null,"password":null,"phoneNumber":null,"gender":null,"styleForm":props.styleForm,"msgError":null,"msgErrorEmail":null,"msgErrorFullname":null}
     }
 
     onRegister = () => {
@@ -41,21 +41,21 @@ export default class Auth extends Component {
         this.setState({            
             [e.target.id] : e.target.value
         })
-
-        console.log(this.state.styleForm)
-        console.log(this.state[e.target.id])
     }
+
+    
+
 
     render(){
         return (
-            this.state.login === true
+            this.props.styleAuth === "Login"
             ?
             (
-                <Login state = {this.state.styleForm} />
+                <Login />
             )
             :
             (
-                <Register onRegister= {this.onRegister} onInputChange = {this.onInputChange} state = {this.state.styleForm} />
+                <Register onRegister= {this.onRegister} onInputChange = {this.onInputChange} />
             )
     )
     }

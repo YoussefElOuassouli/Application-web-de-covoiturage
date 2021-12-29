@@ -1,20 +1,32 @@
-import React, {useState} from 'react'
+import React, { Component } from 'react'
 import Auth from './Auth'
+import HomeContent from './HomeContent'
 import NavBar from './NavBar'
 
-export default function Home() {
-    const [authDisplayed, setAuthDisplayed] = useState("")
-    const onRegOrLogClick = (state) => {
-        setAuthDisplayed(state)
+export default class Home extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            isLoginOrRegister : "",
+        }
     }
 
-    return (
-        <div>
-        {
-            console.log(authDisplayed)
-        }
-            <NavBar  onRegOrLogClick = {onRegOrLogClick}/>
-            <Auth styleAuth={authDisplayed} />
-        </div>
-    )
+    onRegOrLogClick = (state) => {
+        this.setState({...this.state,
+            isLoginOrRegister : state
+        })
+    }
+
+    render() {
+        return (
+            <div>
+            {
+                console.log("in Home comp :"+ this.state.authDisplayed)
+            }
+                <NavBar  onRegOrLogClick = {this.onRegOrLogClick}/>
+                {/* <Auth styleAuth={this.state.isLoginOrRegister}/> */}
+                <HomeContent />
+            </div>
+        )
+    }
 }
